@@ -2,3 +2,12 @@
 *~
 *.swp
 ~$*
+/Buscador/nbproject/private/
+/Buscador/Buscador-war/nbproject/private/
+/Buscador/Buscador-ejb/nbproject/private/
+/Buscador/Buscador-ejb/build/
+/Buscador/Buscador-ejb/dist/
+/Buscador/Buscador-war/build/
+/Buscador/build/
+/Buscador/dist/
+/Buscador/Buscador-war/dist/
