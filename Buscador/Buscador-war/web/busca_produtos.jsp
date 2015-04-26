@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="br.mack.projeto.ejb.entities.Oferta"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -57,6 +59,18 @@
                 <input type="text" id="texto_buscar" /> <input type="button" class="btn" value="Buscar" onclick="buscar()"/>
             </div>
             <div id="resultado">
+                <table>
+                    <%
+                        List<Oferta> ofertas = (List<Oferta>) request.getAttribute("ofertas");
+
+                        for (Oferta o : ofertas) {
+                    %>
+                    <tr><td><%=o.getUrlOferta()%></td></tr>
+                    <%
+                        }
+                    %>
+
+                </table>
             </div>
         </div>
         <script src="js/jquery.js"></script>

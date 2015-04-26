@@ -7,7 +7,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.persistence.Query;
 
 @Stateless
 public class BuscaSimples implements BuscaSimplesLocal {
@@ -20,13 +20,18 @@ public class BuscaSimples implements BuscaSimplesLocal {
 
         List<Oferta> ofertas = new ArrayList<>();
 
-        TypedQuery<Produto> query = em.createNamedQuery("SELECT * FROM produto WHERE nome_produto LIKE %" + produto + "%", Produto.class);
+        Query query = em.createQuery("SELECT p FROM Produto p WHERE p.nomeProduto LIKE :x");
 
-        for (Produto p : query.getResultList()) {
+        query.setParameter("x", "%" + produto + "%").setMaxResults(10);
 
-            TypedQuery<Oferta> query2 = em.createNamedQuery("SELECT * FROM oferta where id_produto=" + p.getIdProduto(), Oferta.class);
+        for (Produto p : (List<Produto>) query.getResultList()) {
 
-            for (Oferta oferta : query2.getResultList()) {
+            Query query2 = em.createQuery("SELECT o FROM Oferta o WHERE o.idProduto = :xyz");
+            query2.setParameter("xyz", p);
+
+            List<Oferta> ofertaList = query2.getResultList();
+
+            for (Oferta oferta : ofertaList) {
                 ofertas.add(oferta);
             }
 
