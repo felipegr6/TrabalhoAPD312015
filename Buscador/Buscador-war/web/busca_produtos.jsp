@@ -63,7 +63,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script>
                     function buscar() {
-                        location.href = "/FrontController?control=Index&produto=" + document.getElementById("texto_buscar");
+                        location.href = "FrontController?control=Index&produto=" + document.getElementById("texto_buscar").value;
                     }
         </script>
     </body>
