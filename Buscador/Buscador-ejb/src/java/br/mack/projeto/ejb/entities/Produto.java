@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.mack.projeto.ejb.entities;
 
 import java.io.Serializable;
@@ -25,10 +20,6 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author Felipe
- */
 @Entity
 @Table(name = "produto")
 @XmlRootElement
@@ -40,6 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Produto.findByFoto", query = "SELECT p FROM Produto p WHERE p.foto = :foto"),
     @NamedQuery(name = "Produto.findByInfoTecnica", query = "SELECT p FROM Produto p WHERE p.infoTecnica = :infoTecnica")})
 public class Produto implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -170,5 +162,5 @@ public class Produto implements Serializable {
     public String toString() {
         return "br.mack.projeto.entities.Produto[ idProduto=" + idProduto + " ]";
     }
-    
+
 }
