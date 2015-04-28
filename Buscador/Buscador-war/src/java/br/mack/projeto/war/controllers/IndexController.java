@@ -2,6 +2,7 @@ package br.mack.projeto.war.controllers;
 
 import br.mack.projeto.ejb.entities.Oferta;
 import br.mack.projeto.ejb.facades.BuscaSimplesLocal;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,8 +17,11 @@ public class IndexController extends AbstractController {
     @Override
     public void execute() {
 
-        List<Oferta> ofertas = buscaSimples.findByCriteria(this.getRequest().getParameter("produto"));
+        String produto = this.getRequest().getParameter("produto");
+        List<Oferta> ofertas = buscaSimples.findByCriteria(produto);
+        Collections.sort(ofertas);
 
+        this.getRequest().setAttribute("pesquisa", produto);
         this.getRequest().setAttribute("ofertas", ofertas);
         this.setReturnPage("/busca_produtos.jsp");
 

@@ -59,18 +59,25 @@
                 <input type="text" id="texto_buscar" /> <input type="button" class="btn" value="Buscar" onclick="buscar()"/>
             </div>
             <div id="resultado">
-                <table>
-                    <%
-                        List<Oferta> ofertas = (List<Oferta>) request.getAttribute("ofertas");
+                <h1>Pesquisa para <%=(String) request.getAttribute("pesquisa")%></h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <%
+                            List<Oferta> ofertas = (List<Oferta>) request.getAttribute("ofertas");
 
-                        for (Oferta o : ofertas) {
-                    %>
-                    <tr><td><%=o.getUrlOferta()%></td></tr>
-                    <%
-                        }
-                    %>
+                            for (Oferta o : ofertas) {
+                        %>
+                        <tr>
+                            <td><%=o.getDescricao()%></td>
+                            <td><%=o.getPrecoTratado()%></td>
+                            <td><a href="<%=o.getUrlOferta()%>">Link da Oferta</a></td>
+                        </tr>
+                        <%
+                            }
+                        %>
 
-                </table>
+                    </table>
+                </div>
             </div>
         </div>
         <script src="js/jquery.js"></script>

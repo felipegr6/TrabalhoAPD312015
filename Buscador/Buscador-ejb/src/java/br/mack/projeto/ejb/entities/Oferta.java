@@ -1,6 +1,7 @@
 package br.mack.projeto.ejb.entities;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -29,7 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Oferta.findByPreco", query = "SELECT o FROM Oferta o WHERE o.preco = :preco"),
     @NamedQuery(name = "Oferta.findByUrlOferta", query = "SELECT o FROM Oferta o WHERE o.urlOferta = :urlOferta"),
     @NamedQuery(name = "Oferta.findByDataCadastro", query = "SELECT o FROM Oferta o WHERE o.dataCadastro = :dataCadastro")})
-public class Oferta implements Serializable {
+public class Oferta implements Serializable, Comparable<Oferta> {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -39,7 +40,7 @@ public class Oferta implements Serializable {
     private Integer idOferta;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 200)
     @Column(name = "descricao")
     private String descricao;
     @Basic(optional = false)
@@ -138,6 +139,10 @@ public class Oferta implements Serializable {
         return hash;
     }
 
+    public String getPrecoTratado() {
+        return NumberFormat.getCurrencyInstance().format(preco);
+    }
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -154,6 +159,19 @@ public class Oferta implements Serializable {
     @Override
     public String toString() {
         return "br.mack.projeto.entities.Oferta[ idOferta=" + idOferta + " ]";
+    }
+
+    @Override
+    public int compareTo(Oferta o) {
+
+        if (this.preco == o.getPreco()) {
+            return 0;
+        } else if (this.preco > o.getPreco()) {
+            return 1;
+        } else {
+            return -1;
+        }
+
     }
 
 }

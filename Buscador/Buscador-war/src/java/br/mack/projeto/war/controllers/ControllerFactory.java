@@ -6,7 +6,9 @@ import java.util.logging.Logger;
 public class ControllerFactory {
 
     private static Controller getControllerByClass(Class actionClass) {
+        
         Controller controller;
+        
         try {
             controller = (Controller) actionClass.newInstance();
             return controller;
