@@ -1,10 +1,7 @@
-<%@page import="java.util.List"%>
-<%@page import="br.mack.projeto.ejb.entities.Oferta"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Buscador</title>
+        <title>Buscador - Cadastro</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,6 +12,7 @@
         <link href="css/starter-template.css" rel="stylesheet">
     </head>
     <body>
+
         <div class="container">
 
             <!-- Static navbar -->
@@ -31,9 +29,9 @@
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="index.html">Home</a></li>
+                            <li><a href="index.html">Home</a></li>
                             <li><a href="login.html">Login</a></li>
-                            <li><a href="cadastro.html">Cadastro</a></li>
+                            <li class="active"><a href="cadastro.html">Cadastro</a></li>
                             <!--
                             <li><a href="#about">About</a></li>
                             <li><a href="#contact">Contact</a></li>
@@ -57,37 +55,32 @@
                 </div>
             </nav>
 
-            <div id="busca">
-                <input type="text" id="texto_buscar" required autofocus/> <input type="button" class="btn" value="Buscar" onclick="buscar()"/>
+            <div id="cadastro" class="container">
+                <form class="form-horizontal" method="post" action="FrontController?control=Cadastro">
+                    <h2 class="form-signin-heading">Cadastro</h2>
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <input id="nome" name="nome" type="text" placeholder="Nome" class="form-control" />
+                        </div>
+                        <div class="col-md-8">
+                            <input id="email" name="email" type="email" placeholder="E-mail" class="form-control" />
+                        </div>
+                        <div class="col-md-8">
+                            <input id="senha" name="senha" type="password" placeholder="Senha" class="form-control" />
+                        </div>
+                        <div class="col-md-8">
+                            <input id="confirmar_senha" name="confirmar_senha" type="password" placeholder="Confirmação da senha" class="form-control" />
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div id="resultado">
-                <h1>Pesquisa para <%=(String) request.getAttribute("pesquisa")%></h1>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <%
-                            List<Oferta> ofertas = (List<Oferta>) request.getAttribute("ofertas");
 
-                            for (Oferta o : ofertas) {
-                        %>
-                        <tr>
-                            <td><%=o.getDescricao()%></td>
-                            <td><%=o.getPrecoTratado()%></td>
-                            <td><a href="<%=o.getUrlOferta()%>">Link da Oferta</a></td>
-                        </tr>
-                        <%
-                            }
-                        %>
-
-                    </table>
-                </div>
-            </div>
         </div>
+
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script>
-                    function buscar() {
-                        location.href = "FrontController?control=Index&produto=" + document.getElementById("texto_buscar").value;
-                    }
-        </script>
     </body>
 </html>
