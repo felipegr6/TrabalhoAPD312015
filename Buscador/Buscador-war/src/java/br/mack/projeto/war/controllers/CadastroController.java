@@ -16,7 +16,7 @@ public class CadastroController extends AbstractController {
     public void execute() {
         
         String nome = getRequest().getParameter("nome");
-        String email = getRequest().getParameter("nome");
+        String email = getRequest().getParameter("email");
         String senha = getRequest().getParameter("senha");
         String confirmarSenha = getRequest().getParameter("confirmar_senha");
         
@@ -30,7 +30,7 @@ public class CadastroController extends AbstractController {
         
         usuarioFacade.create(usuario);
         
-        setReturnPage("index.html");
+        setReturnPage("/index.html");
         
     }
     
