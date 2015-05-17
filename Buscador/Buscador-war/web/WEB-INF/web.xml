@@ -61,4 +61,10 @@
         <local>br.mack.projeto.ejb.facades.UsuarioFacadeLocal</local>
         <ejb-link>Buscador-ejb.jar#UsuarioFacade</ejb-link>
     </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>OfertaFacade1</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>br.mack.projeto.ejb.facades.OfertaFacadeLocal</local>
+        <ejb-link>Buscador-ejb.jar#OfertaFacade</ejb-link>
+    </ejb-local-ref>
 </web-app>

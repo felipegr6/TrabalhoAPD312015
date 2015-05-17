@@ -20,5 +20,7 @@ public interface OfertaFacadeLocal {
     List<Oferta> findRange(int[] range);
 
     int count();
+    
+    void removeAll();
 
 }

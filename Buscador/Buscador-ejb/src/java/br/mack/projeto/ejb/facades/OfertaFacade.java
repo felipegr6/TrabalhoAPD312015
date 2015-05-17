@@ -4,6 +4,7 @@ import br.mack.projeto.ejb.entities.Oferta;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @Stateless
 public class OfertaFacade extends AbstractFacade<Oferta> implements OfertaFacadeLocal {
@@ -18,6 +19,15 @@ public class OfertaFacade extends AbstractFacade<Oferta> implements OfertaFacade
 
     public OfertaFacade() {
         super(Oferta.class);
+    }
+
+    @Override
+    public void removeAll() {
+
+        Query query = em.createQuery("DELETE o from Oferta o");
+
+        query.executeUpdate();
+
     }
 
 }
