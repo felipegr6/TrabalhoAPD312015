@@ -24,7 +24,7 @@ public class OfertaFacade extends AbstractFacade<Oferta> implements OfertaFacade
     @Override
     public void removeAll() {
 
-        Query query = em.createQuery("DELETE o from Oferta o");
+        Query query = em.createQuery("DELETE from Oferta o");
 
         query.executeUpdate();
 
