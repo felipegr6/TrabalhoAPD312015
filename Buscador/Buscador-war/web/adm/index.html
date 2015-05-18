@@ -13,5 +13,8 @@
     </head>
     <body>
         <div><a href="../FrontController?control=ListarUsuarios">Listar todos os usuários</a></div>
+        <div><a onclick="return confirm(\'Are you sure you want to delete '.esc_attr($this->event_name).'?\')" href="../FrontController?control=LimparBanco">Limpar Ofertas</a></div>
+        <br />
+        <div><a href="../FrontController?control=CarregarServer1">Carregar produtos do Server 1</a></div>
     </body>
 </html>

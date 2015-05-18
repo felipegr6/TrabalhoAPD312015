@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-@Stateless
+@Stateless(mappedName = "busca")
 public class BuscaSimples implements BuscaSimplesLocal {
 
     @PersistenceContext(unitName = "Buscador-ejbPU")
