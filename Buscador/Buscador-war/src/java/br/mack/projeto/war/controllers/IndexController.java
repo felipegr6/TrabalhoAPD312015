@@ -1,6 +1,7 @@
 package br.mack.projeto.war.controllers;
 
 import br.mack.projeto.ejb.entities.Oferta;
+import br.mack.projeto.ejb.entities.ProdServer1;
 import br.mack.projeto.ejb.facades.BuscaSimplesLocal;
 import java.util.Collections;
 import java.util.List;
@@ -19,8 +20,11 @@ public class IndexController extends AbstractController {
     public void execute() {
 
         String produto = this.getRequest().getParameter("produto");
-        List<Oferta> ofertas = buscaSimples.findByCriteria(produto);
-        Collections.sort(ofertas);
+        /*
+         List<Oferta> ofertas = buscaSimples.findByCriteria(produto);
+         Collections.sort(ofertas);
+         */
+        List<ProdServer1> ofertas = buscaSimples.findByCriteriaServer1(produto);
 
         this.getRequest().setAttribute("pesquisa", produto);
         this.getRequest().setAttribute("ofertas", ofertas);

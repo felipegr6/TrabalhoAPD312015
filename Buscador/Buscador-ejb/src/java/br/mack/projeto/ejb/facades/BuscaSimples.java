@@ -1,6 +1,7 @@
 package br.mack.projeto.ejb.facades;
 
 import br.mack.projeto.ejb.entities.Oferta;
+import br.mack.projeto.ejb.entities.ProdServer1;
 import br.mack.projeto.ejb.entities.Produto;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,22 @@ public class BuscaSimples implements BuscaSimplesLocal {
         }
 
         return ofertas;
+
+    }
+
+    @Override
+    public List<ProdServer1> findByCriteriaServer1(String produto) {
+
+        List<ProdServer1> produtos;
+        Query query = em.createQuery("SELECT p FROM ProdServer1 p WHERE p.descProduto LIKE :x");
+
+        query.setParameter("x", "%" + produto + "%").setMaxResults(10);
+
+        produtos = (List<ProdServer1>) query.getResultList();
+        
+        System.out.println(produtos.size());
+
+        return produtos;
 
     }
 

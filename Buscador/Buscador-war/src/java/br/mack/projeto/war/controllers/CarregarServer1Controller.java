@@ -2,6 +2,7 @@ package br.mack.projeto.war.controllers;
 
 import br.mack.projeto.ejb.facades.ClienteWSLocal;
 import br.mack.projeto.ejb.produtos.ProdutoServer1;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -15,6 +16,8 @@ public class CarregarServer1Controller extends AbstractController {
     @Override
     public void execute() {
 
+        List<ProdutoServer1> produtos = clienteWS.carregarBD();
+        
         for (ProdutoServer1 p : clienteWS.carregarBD()) {
 
             System.out.println(p.getNomeProduto());

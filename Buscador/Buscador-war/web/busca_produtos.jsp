@@ -1,3 +1,5 @@
+<%@page import="java.text.NumberFormat"%>
+<%@page import="br.mack.projeto.ejb.entities.ProdServer1"%>
 <%@page import="java.util.List"%>
 <%@page import="br.mack.projeto.ejb.entities.Oferta"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -65,14 +67,16 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <%
-                            List<Oferta> ofertas = (List<Oferta>) request.getAttribute("ofertas");
+                            List<ProdServer1> ofertas = (List<ProdServer1>) request.getAttribute("ofertas");
 
-                            for (Oferta o : ofertas) {
+                            for (ProdServer1 o : ofertas) {
                         %>
                         <tr>
-                            <td><%=o.getDescricao()%></td>
-                            <td><%=o.getPrecoTratado()%></td>
-                            <td><a href="<%=o.getUrlOferta()%>">Link da Oferta</a></td>
+                            <td><%=o.getNomeProduto()%></td>
+                            <td><%=o.getDescProduto()%></td>
+                            <td><%=NumberFormat.getCurrencyInstance().format(o.getPreco())%></td>
+                            <!--<td><a href="-->
+                            <!--o.getUrlOferta()%">--><!--Link da Oferta</a></td>-->
                         </tr>
                         <%
                             }
