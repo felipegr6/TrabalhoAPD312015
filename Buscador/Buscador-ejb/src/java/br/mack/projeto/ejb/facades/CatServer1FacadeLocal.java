@@ -21,4 +21,6 @@ public interface CatServer1FacadeLocal {
 
     int count();
 
+    void removeAll();
+
 }

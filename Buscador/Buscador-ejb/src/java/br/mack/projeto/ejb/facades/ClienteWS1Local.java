@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.Local;
 
 @Local
-public interface ClienteWSLocal {
+public interface ClienteWS1Local {
 
     List<ProdutoServer1> carregarBD();
 

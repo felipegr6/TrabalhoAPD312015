@@ -26,7 +26,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 @Stateless
-public class ClienteWS implements ClienteWSLocal {
+public class ClienteWS1 implements ClienteWS1Local {
 
     Gson gson = new Gson();
     List<ProdutoServer1> produtos;
@@ -91,9 +91,9 @@ public class ClienteWS implements ClienteWSLocal {
                     ProdServer1 prod = new ProdServer1();
 
                     prod.setCodProduto(p.getCodProduto());
-                    prod.setNomeProduto(p.getNomeProduto().length() > 50 ? p.getNomeProduto().substring(50) : p.getNomeProduto());
-                    prod.setImgProduto(p.getImgProduto().length() > 50 ? p.getImgProduto().substring(50) : p.getImgProduto());
-                    prod.setDescProduto(p.getDescProduto().length() > 200 ? p.getDescProduto().substring(200) : p.getDescProduto());
+                    prod.setNomeProduto(p.getNome().length() > 50 ? p.getNome().substring(0,50) : p.getNome());
+                    prod.setImgProduto(p.getImgProduto().length() > 50 ? p.getImgProduto().substring(0,50) : p.getImgProduto());
+                    prod.setDescProduto(p.getDescricao().length() > 200 ? p.getDescricao().substring(0,200) : p.getDescricao());
                     prod.setPreco(p.getPreco());
 
                     produto.create(prod);
@@ -105,10 +105,10 @@ public class ClienteWS implements ClienteWSLocal {
             return produtos;
 
         } catch (IOException ex) {
-            Logger.getLogger(ClienteWS.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteWS1.class.getName()).log(Level.SEVERE, null, ex);
             return new ArrayList<ProdutoServer1>();
         } catch (TransactionRolledbackLocalException ex) {
-            Logger.getLogger(ClienteWS.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteWS1.class.getName()).log(Level.SEVERE, null, ex);
             return new ArrayList<ProdutoServer1>();
         }
 

@@ -73,4 +73,34 @@
         <local>br.mack.projeto.ejb.facades.ClienteWSLocal</local>
         <ejb-link>Buscador-ejb.jar#ClienteWS</ejb-link>
     </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>ProdServer2Facade</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>br.mack.projeto.ejb.facades.ProdServer2FacadeLocal</local>
+        <ejb-link>Buscador-ejb.jar#ProdServer2Facade</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>ClienteWS2</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>br.mack.projeto.ejb.facades.ClienteWS2Local</local>
+        <ejb-link>Buscador-ejb.jar#ClienteWS2</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>ProdServer1Facade</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>br.mack.projeto.ejb.facades.ProdServer1FacadeLocal</local>
+        <ejb-link>Buscador-ejb.jar#ProdServer1Facade</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>ProdServer2Facade1</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>br.mack.projeto.ejb.facades.ProdServer2FacadeLocal</local>
+        <ejb-link>Buscador-ejb.jar#ProdServer2Facade</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>CatServer1Facade</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>br.mack.projeto.ejb.facades.CatServer1FacadeLocal</local>
+        <ejb-link>Buscador-ejb.jar#CatServer1Facade</ejb-link>
+    </ejb-local-ref>
 </web-app>

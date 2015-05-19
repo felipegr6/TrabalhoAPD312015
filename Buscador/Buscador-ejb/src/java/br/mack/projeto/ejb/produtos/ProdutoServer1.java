@@ -1,6 +1,6 @@
 package br.mack.projeto.ejb.produtos;
 
-public class ProdutoServer1 {
+public class ProdutoServer1 implements AbstractProduto {
 
     private CategoriaServer1 codCategoria;
     private int codProduto;
@@ -8,6 +8,12 @@ public class ProdutoServer1 {
     private String imgProduto;
     private String nomeProduto;
     private double preco;
+
+    public ProdutoServer1(String nome, String descricao, double preco) {
+        this.nomeProduto = nome;
+        this.descProduto = descricao;
+        this.preco = preco;
+    }
 
     public ProdutoServer1(CategoriaServer1 codCategoria, int codProduto, String descProduto, String imgProduto, String nomeProduto, double preco) {
         this.codCategoria = codCategoria;
@@ -34,7 +40,8 @@ public class ProdutoServer1 {
         this.codProduto = codProduto;
     }
 
-    public String getDescProduto() {
+    @Override
+    public String getDescricao() {
         return descProduto;
     }
 
@@ -50,7 +57,8 @@ public class ProdutoServer1 {
         this.imgProduto = imgProduto;
     }
 
-    public String getNomeProduto() {
+    @Override
+    public String getNome() {
         return nomeProduto;
     }
 
@@ -58,12 +66,27 @@ public class ProdutoServer1 {
         this.nomeProduto = nomeProduto;
     }
 
+    @Override
     public double getPreco() {
         return preco;
     }
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    @Override
+    public int compareTo(AbstractProduto o) {
+
+        if (this.getPreco() == o.getPreco()) {
+            return 0;
+        }
+        if (this.getPreco() > o.getPreco()) {
+            return 1;
+        } else {
+            return -1;
+        }
+
     }
 
 }

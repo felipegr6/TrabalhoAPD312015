@@ -21,4 +21,6 @@ public interface ProdServer1FacadeLocal {
 
     int count();
     
+    void removeAll();
+    
 }
