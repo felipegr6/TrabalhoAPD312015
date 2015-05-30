@@ -10,15 +10,15 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 public class CarregarServer1Controller extends AbstractController {
-
-    ClienteWS1Local clienteWS = lookupClienteWSLocal();
+    
+    ClienteWS1Local clienteWS1 = lookupClienteWS1Local();
 
     @Override
     public void execute() {
 
-        List<ProdutoServer1> produtos = clienteWS.carregarBD();
+        List<ProdutoServer1> produtos = clienteWS1.carregarBD();
 
-        clienteWS.carregarBD().stream().map((p) -> {
+        clienteWS1.carregarBD().stream().map((p) -> {
             System.out.println(p.getNome());
             return p;
         }).forEach((p) -> {
@@ -29,21 +29,14 @@ public class CarregarServer1Controller extends AbstractController {
 
     }
 
-    private ClienteWS1Local lookupClienteWSLocal() {
-
+    private ClienteWS1Local lookupClienteWS1Local() {
         try {
-
             Context c = new InitialContext();
-
-            return (ClienteWS1Local) c.lookup("java:global/Buscador/Buscador-ejb/ClienteWS!br.mack.projeto.ejb.facades.ClienteWSLocal");
-
+            return (ClienteWS1Local) c.lookup("java:global/Buscador/Buscador-ejb/ClienteWS1!br.mack.projeto.ejb.facades.ClienteWS1Local");
         } catch (NamingException ne) {
-
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);
-
         }
-
     }
 
 }

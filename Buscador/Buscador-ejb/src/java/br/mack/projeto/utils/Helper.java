@@ -6,7 +6,7 @@ public class Helper {
 
     }
 
-    public static final String URL_INTEGRACAO_1 = "http://192.168.43.194:8080/LojaWebService/webresources/entity.produto";
+    public static final String URL_INTEGRACAO_1 = "http://172.20.10.4:8080/lojaJsp-war/rest/service";
     public static final String URL_INTEGRACAO_2 = "";
     public static final String URL_INTEGRACAO_3 = "";
 

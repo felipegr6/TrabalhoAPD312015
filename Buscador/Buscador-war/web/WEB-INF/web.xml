@@ -68,12 +68,6 @@
         <ejb-link>Buscador-ejb.jar#OfertaFacade</ejb-link>
     </ejb-local-ref>
     <ejb-local-ref>
-        <ejb-ref-name>ClienteWS</ejb-ref-name>
-        <ejb-ref-type>Session</ejb-ref-type>
-        <local>br.mack.projeto.ejb.facades.ClienteWSLocal</local>
-        <ejb-link>Buscador-ejb.jar#ClienteWS</ejb-link>
-    </ejb-local-ref>
-    <ejb-local-ref>
         <ejb-ref-name>ProdServer2Facade</ejb-ref-name>
         <ejb-ref-type>Session</ejb-ref-type>
         <local>br.mack.projeto.ejb.facades.ProdServer2FacadeLocal</local>
@@ -102,5 +96,11 @@
         <ejb-ref-type>Session</ejb-ref-type>
         <local>br.mack.projeto.ejb.facades.CatServer1FacadeLocal</local>
         <ejb-link>Buscador-ejb.jar#CatServer1Facade</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>ClienteWS1</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>br.mack.projeto.ejb.facades.ClienteWS1Local</local>
+        <ejb-link>Buscador-ejb.jar#ClienteWS1</ejb-link>
     </ejb-local-ref>
 </web-app>
