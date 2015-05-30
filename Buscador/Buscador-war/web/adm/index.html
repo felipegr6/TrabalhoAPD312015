@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="../css/starter-template.css" rel="stylesheet">
+        <title>Buscador - ADM</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="h1">Área Administrativa</h1>
+            <div><a href="../FrontController?control=ListarUsuarios">Listar todos os usuários</a></div>
+            <div><button class="btn" type="button" onclick="limparBanco()">Limpar Ofertas</button></div>
+            <br />
+            <div><a href="../FrontController?control=CarregarServer1">Carregar produtos do Server 1</a></div>
+            <div><a href="../FrontController?control=CarregarServer2">Carregar produtos do Server 2</a></div>
+        </div>
+        <script>
+            function limparBanco() {
+
+                var opcao = confirm("Quer realmente limpar o banco?");
+                if (opcao === true) {
+                    location.href = "../FrontController?control=LimparBanco";
+                }
+
+            }
+        </script>
+    </body>
+</html>

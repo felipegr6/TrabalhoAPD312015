@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Buscador - Cadastro</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="css/starter-template.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="container">
+
+            <!-- Static navbar -->
+            <nav class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Buscador</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li class="active"><a href="cadastro.html">Cadastro</a></li>
+                            <!--
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            -->
+                            <!--
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Nav header</li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                            -->
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </nav>
+
+            <div id="cadastro" class="container">
+                <form class="form-horizontal" method="post" action="FrontController?control=Cadastro">
+                    <h2 class="form-signin-heading">Cadastro</h2>
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <input id="nome" name="nome" type="text" required placeholder="Nome" class="form-control" />
+                        </div>
+                        <div class="col-md-8">
+                            <input id="email" name="email" type="email" required placeholder="E-mail" class="form-control" />
+                        </div>
+                        <div class="col-md-8">
+                            <input id="senha" name="senha" type="password" required placeholder="Senha" class="form-control" />
+                        </div>
+                        <div class="col-md-8">
+                            <input id="confirmar_senha" name="confirmar_senha" required type="password" placeholder="Confirmação da senha" class="form-control" />
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
